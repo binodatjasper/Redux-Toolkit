@@ -71,3 +71,8 @@ table tbody tr td button {
     margin-top: 15px;
     font-size: 14px;
 }
+
+.comment-text {
+    margin: 0 10px;
+    color: #666;
+}

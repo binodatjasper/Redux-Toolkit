@@ -55,7 +55,11 @@ export default function Comment({ postId }) {
                 {datas.map((item, i) => {
                     return (
                         <li key={i}>
-                            <span>{item.commentText}</span>
+                            <span>
+                                <i class="fa-solid fa-quote-left"></i>
+                                <i className="comment-text">{item.commentText}</i>
+                                <i class="fa-solid fa-quote-right"></i>
+                            </span>
                             <span>
                                 <button type="button" className="btn btn-success" onClick={() => handleUpdate(item)}>
                                     <i className="fa-solid fa-edit"></i>
