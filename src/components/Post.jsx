@@ -80,11 +80,7 @@ export default function Post() {
                                 <td>{i + 1}</td>
                                 <td>{item.title}</td>
                                 <td>
-                                    <span>
-                                        {
-                                            item.isActive ? 'Active' : 'Deactive'
-                                        }
-                                    </span>
+                                    <span className={item.isActive ? 'badge badge-lg rounded-pill bg-success' : 'badge rounded-pill bg-danger'}>  {item.isActive ? 'Active' : 'Deactive'} </span>
                                 </td>
                                 <td>
                                     <button type="button" className="btn btn-success" onClick={() => handleUpdate(item)}>
