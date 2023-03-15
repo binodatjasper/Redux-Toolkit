@@ -40,11 +40,11 @@ export default function Comment({ postId }) {
 
     return (
         <div className="comments">
-            <p>Comments :</p>
+            <p className="comments-title">Comments :</p>
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col-sm-6">
-                        <input type="text" name="commentText" onChange={handleChange} value={formData.commentText} className="form-control" placeholder="Enter comment" />
+                        <textarea rows={4} type="text" name="commentText" onChange={handleChange} value={formData.commentText} className="form-control" placeholder="Enter comment" />
                     </div>
                     <div className="col-sm-6">
                         <button type="submit" className={isUpdate ? 'btn btn-sm btn-success' : 'btn btn-sm btn-primary'}>{isUpdate ? 'update Comment' : 'Add Comment'}</button>
@@ -55,7 +55,6 @@ export default function Comment({ postId }) {
                 {datas.map((item, i) => {
                     return (
                         <li key={i}>
-                            <span>{i + 1}.</span>
                             <span>{item.commentText}</span>
                             <span>
                                 <button type="button" className="btn btn-success" onClick={() => handleUpdate(item)}>
@@ -68,8 +67,7 @@ export default function Comment({ postId }) {
                         </li>
                     );
                 })}
-            </ul> : 'No comments yet'}
-            <hr />
+            </ul> : <p className="no-comment">No comments yet!</p>}
         </div>
     );
 }

@@ -33,33 +33,41 @@ table tbody tr td button {
     margin: 0 2px;
 }
 
+.comments {
+    padding: 10px 15px 0;
+}
+
+.comments-title {
+    margin-bottom: 10px;
+}
+
 .comments ul {
     padding: 0;
-    padding-top: 10px;
-    padding-left: 10px;
-    width: 445px;
+    padding-top: 5px;
 }
 
 .comments ul li {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     list-style: none;
     margin-top: 4px;
+    padding: 15px;
+    border-radius: 5px;
+    background: #fff;
+    font-size: 14px;
 }
 
 .comments ul li span:nth-child(1) {
-    display: block;
-    text-align: left;
-    width: 10%;
+    width: calc(100% - 115px);
 }
 
 .comments ul li span:nth-child(2) {
-    width: 80%;
-}
-
-.comments ul li span:nth-child(3) {
     display: block;
     text-align: left;
-    width: 130px;
+    width: 90px;
+}
+
+.no-comment {
+    margin-top: 15px;
+    font-size: 14px;
 }
