@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost, removePost, updatePost } from '../store/postSlice';
 
+import Comment from './Comment';
+
 export default function Post() {
     const dispatch = useDispatch();
-    const datas = useSelector((state) => state.posts);
+    const datas = useSelector(state => state.post.posts);
     const [isUpdate, setIsUpdate] = useState(false);
     const [formData, setformData] = useState({
+        id: '',
         title: '',
         isActive: false
     });
@@ -70,31 +73,38 @@ export default function Post() {
                         <th>SN</th>
                         <th>Title</th>
                         <th>Active</th>
-                        <th>Action</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <>
                     {datas.map((item, i) => {
                         return (
-                            <tr key={i}>
-                                <td>{i + 1}</td>
-                                <td>{item.title}</td>
-                                <td>
-                                    <span className={item.isActive ? 'badge badge-lg rounded-pill bg-success' : 'badge rounded-pill bg-danger'}>  {item.isActive ? 'Active' : 'Deactive'} </span>
-                                </td>
-                                <td>
-                                    <button type="button" className="btn btn-success" onClick={() => handleUpdate(item)}>
-                                        <i className="fa-solid fa-edit"></i>
-                                    </button>
-                                    <button type="button" className="btn btn-danger" onClick={() => handleRemove(item)}>
-                                        <i className="fa-solid fa-trash"></i>
-                                    </button>
-                                </td>
-                            </tr>
+                            <tbody key={i}>
+                                < tr style={{ background: "#2c3e50", color: "#fff" }}>
+                                    <td style={{ paddingTop: 15, textAlign: "center" }}>{i + 1}</td>
+                                    <td style={{ paddingTop: 15 }}>{item.title}</td>
+                                    <td style={{ paddingTop: 13 }}>
+                                        <span className={item.isActive ? 'badge badge-lg rounded-pill bg-success' : 'badge rounded-pill bg-danger'}>  {item.isActive ? 'Active' : 'Deactive'} </span>
+                                    </td>
+                                    <td>
+                                        <button type="button" className="btn btn-success" onClick={() => handleUpdate(item)}>
+                                            <i className="fa-solid fa-edit"></i>
+                                        </button>
+                                        <button type="button" className="btn btn-danger" onClick={() => handleRemove(item)}>
+                                            <i className="fa-solid fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colSpan={4}>
+                                        <Comment postId={item.id} />
+                                    </td>
+                                </tr>
+                            </tbody>
                         );
                     })}
-                </tbody>
-            </table>
-        </div>
+                </>
+            </table >
+        </div >
     );
 }

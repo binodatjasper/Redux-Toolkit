@@ -32,3 +32,34 @@ table tbody tr td:last-child {
 table tbody tr td button {
     margin: 0 2px;
 }
+
+.comments ul {
+    padding: 0;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 445px;
+}
+
+.comments ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin-top: 4px;
+}
+
+.comments ul li span:nth-child(1) {
+    display: block;
+    text-align: left;
+    width: 10%;
+}
+
+.comments ul li span:nth-child(2) {
+    width: 80%;
+}
+
+.comments ul li span:nth-child(3) {
+    display: block;
+    text-align: left;
+    width: 130px;
+}
