@@ -11,10 +11,9 @@ const postSlice = createSlice({
             console.log(actions.payload.title);
             state.post.push({ id: uuidv4(), title: actions.payload.title });
         },
-        // updatePost(state, actions) {
-        //     console.log(actions.payload.id);
-        //     state.post = { ...state.post.actions.payload,}
-        // },
+        updatePost(state, actions) {
+
+        },
         removePost(state, actions) {
             console.log(actions.payload.id);
             state.post = state.post.filter(item => item.id !== actions.payload.id);

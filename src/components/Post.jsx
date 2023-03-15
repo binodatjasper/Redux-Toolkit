@@ -5,7 +5,6 @@ import { addPost, removePost } from '../store/postSlice';
 export default function Post() {
     const dispatch = useDispatch();
     const datas = useSelector((state) => state.post);
-
     const [formData, setformData] = useState({
         title: ''
     });
@@ -16,6 +15,11 @@ export default function Post() {
 
     const handleRemove = (item) => {
         dispatch(removePost(item));
+    }
+
+    const handleUpdate = (item) => {
+        setIsUpdate(true);
+        setformData(item);
     }
 
     const handleSubmit = (e) => {
@@ -31,7 +35,7 @@ export default function Post() {
                 <div className="col-sm-6">
                     <h1>Redux Toolkit</h1>
                     <hr />
-                    <form action="" onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit}>
                         <input type="text" name="title" onChange={handleChange} className="form-control" />
                         <br />
                         <button className='btn btn-primary'>Get Post</button>
@@ -42,6 +46,8 @@ export default function Post() {
                             return (
                                 <li key={i}>
                                     <h4>{item.title}</h4>
+
+                                    <button type="button" className="btn btn-success" onClick={() => handleUpdate(item)}>Update</button>
                                     <button type="button" className="btn btn-danger" onClick={() => handleRemove(item)}>Delete</button>
                                 </li>
                             );
