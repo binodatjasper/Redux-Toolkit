@@ -4,6 +4,38 @@ body {
     background: #eee;
 }
 
+.container {
+    min-height: calc(100vh - 150px);
+}
+
+header {
+    padding: 15px;
+    background: #2d3436;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    padding: 15px;
+    background: #2d3436;
+}
+
+footer p {
+    padding: 0;
+    margin-bottom: 0;
+    text-align: center;
+    color: #fff;
+    text-transform: capitalize;
+}
+
 label {
     display: block;
     padding-top: 5px;

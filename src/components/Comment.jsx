@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addComment, updateComment, removeComment } from '../store/commentSlice';
+import { toast } from 'react-toastify';
+import { addComment, updateComment, removeComment } from '../store/slices/commentSlice';
 
 export default function Comment({ postId }) {
     const dispatch = useDispatch();
@@ -16,11 +17,13 @@ export default function Comment({ postId }) {
         setformData({ ...formData, [e.target.name]: e.target.value });
         if (isUpdate) {
             dispatch(updateComment({ ...formData, [e.target.name]: e.target.value }));
+            toast.success('Comment is updated !!!');
         }
     }
 
     const handleRemove = (item) => {
         dispatch(removeComment(item));
+        toast.error('Comment is removed !!!');
     }
 
     const handleUpdate = (item) => {
@@ -33,8 +36,10 @@ export default function Comment({ postId }) {
         if (formData.commentText !== '') {
             if (isUpdate) {
                 dispatch(updateComment(formData));
+                toast.success('Comment is updated !!!');
             } else {
                 dispatch(addComment(formData));
+                toast.info('Comment is added !!!');
             }
         }
         setIsUpdate(false);
@@ -47,7 +52,7 @@ export default function Comment({ postId }) {
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col-sm-6">
-                        <textarea rows={4} type="text" name="commentText" onChange={handleChange} value={formData.commentText} className="form-control" placeholder="Enter comment" />
+                        <textarea type="text" name="commentText" onChange={handleChange} value={formData.commentText} className="form-control" placeholder="Enter comment" />
                     </div>
                     <div className="col-sm-6">
                         <button type="submit" className={isUpdate ? 'btn btn-sm btn-success' : 'btn btn-sm btn-primary'}>{isUpdate ? 'update Comment' : 'Add Comment'}</button>

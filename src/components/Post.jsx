@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addPost, removePost, updatePost } from '../store/postSlice';
-import { removeCommentByPostId } from "../store/commentSlice";
+import { toast } from 'react-toastify';
+import { addPost, removePost, updatePost } from '../store/slices/postSlice';
+import { removeCommentByPostId } from "../store/slices/commentSlice";
 
 import Comment from './Comment';
 
@@ -20,18 +21,21 @@ export default function Post() {
             setformData({ ...formData, [e.target.name]: e.target.value, });
             if (isUpdate) {
                 dispatch(updatePost({ ...formData, [e.target.name]: e.target.value, }));
+                toast.success('Post is updated !!!');
             }
         } else {
             setformData({ ...formData, isActive: e.target.checked });
             if (isUpdate) {
                 dispatch(updatePost({ ...formData, isActive: e.target.checked }));
+                toast.success('Post is updated !!!');
             }
         }
     }
 
     const handleRemove = (item) => {
         dispatch(removePost(item));
-        dispatch(removeCommentByPostId(item))
+        dispatch(removeCommentByPostId(item));
+        toast.error('Post is removed !!!');
     }
 
     const handleUpdate = (item) => {
@@ -44,8 +48,10 @@ export default function Post() {
         if (formData.title !== '') {
             if (isUpdate) {
                 dispatch(updatePost(formData));
+                toast.success('Post is updated !!!');
             } else {
                 dispatch(addPost(formData));
+                toast.info('Post is added !!!');
             }
         }
         setIsUpdate(false);
@@ -54,9 +60,6 @@ export default function Post() {
 
     return (
         <div className="container">
-
-            <h1>CRUD App with Redux Toolkit</h1>
-            <hr />
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col-sm-6">
