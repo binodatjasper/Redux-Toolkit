@@ -59,9 +59,9 @@ export default function Comment({ postId }) {
                     return (
                         <li key={i}>
                             <span>
-                                <i class="fa-solid fa-quote-left"></i>
+                                <i className="fa-solid fa-quote-left"></i>
                                 <i className="comment-text">{item.commentText}</i>
-                                <i class="fa-solid fa-quote-right"></i>
+                                <i className="fa-solid fa-quote-right"></i>
                             </span>
                             <span>
                                 <button type="button" className="btn btn-success" onClick={() => handleUpdate(item)}>

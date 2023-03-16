@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPost, removePost, updatePost } from '../store/postSlice';
+import { removeCommentByPostId } from "../store/commentSlice";
 
 import Comment from './Comment';
 
@@ -30,6 +31,7 @@ export default function Post() {
 
     const handleRemove = (item) => {
         dispatch(removePost(item));
+        dispatch(removeCommentByPostId(item))
     }
 
     const handleUpdate = (item) => {

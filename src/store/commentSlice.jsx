@@ -32,8 +32,13 @@ const commentSlice = createSlice({
         removeComment(state, actions) {
             state.comments = state.comments.filter(item => item.id !== actions.payload.id);
             updateLocalStorage(state);
+        },
+        removeCommentByPostId(state, actions) {
+            state.comments = state.comments.filter(item => item.postId !== actions.payload.id);
+            updateLocalStorage(state);
         }
+
     }
 });
 export default commentSlice;
-export const { addComment, updateComment, removeComment } = commentSlice.actions;
+export const { addComment, updateComment, removeComment, removeCommentByPostId } = commentSlice.actions;
