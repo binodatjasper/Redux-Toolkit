@@ -14,6 +14,7 @@ export default function Comment({ postId }) {
 
     const handleChange = (e) => {
         setformData({ ...formData, [e.target.name]: e.target.value });
+        dispatch(updateComment({ ...formData, [e.target.name]: e.target.value }));
     }
 
     const handleRemove = (item) => {
