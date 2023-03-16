@@ -13,6 +13,11 @@ export default function Comment({ postId }) {
         commentText: ''
     });
 
+    const scrolltoTop = () => window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
     const handleChange = (e) => {
         setformData({ ...formData, [e.target.name]: e.target.value });
         if (isUpdate) {
@@ -29,6 +34,7 @@ export default function Comment({ postId }) {
     const handleUpdate = (item) => {
         setIsUpdate(true);
         setformData(item);
+        scrolltoTop();
     }
 
     const handleSubmit = (e) => {

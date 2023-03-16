@@ -16,6 +16,11 @@ export default function Post() {
         isActive: false
     });
 
+    const scrolltoTop = () => window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
     const handleChange = (e) => {
         if (e.target.name === 'title') {
             setformData({ ...formData, [e.target.name]: e.target.value, });
@@ -41,6 +46,7 @@ export default function Post() {
     const handleUpdate = (item) => {
         setIsUpdate(true);
         setformData(item);
+        scrolltoTop();
     }
 
     const handleSubmit = (e) => {
