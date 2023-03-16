@@ -61,7 +61,7 @@ export default function Comment({ postId }) {
                         <textarea type="text" name="commentText" onChange={handleChange} value={formData.commentText} className="form-control" placeholder="Enter comment" />
                     </div>
                     <div className="col-sm-6">
-                        <button type="submit" className={isUpdate ? 'btn btn-sm btn-success' : 'btn btn-sm btn-primary'}>{isUpdate ? 'update Comment' : 'Add Comment'}</button>
+                        <button type="submit" className={isUpdate ? 'btn btn-sm btn-success' : 'btn btn-sm btn-primary'}>{isUpdate ? 'Update Comment' : 'Add Comment'}</button>
                     </div>
                 </div>
             </form>

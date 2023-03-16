@@ -78,7 +78,7 @@ export default function Post() {
                         </label>
                     </div>
                     <div className="col-sm-12">
-                        <button type="submit" className={isUpdate ? 'btn btn-success' : 'btn btn-primary'}>{isUpdate ? 'update Post' : 'Add Post'}</button>
+                        <button type="submit" className={isUpdate ? 'btn btn-success' : 'btn btn-primary'}>{isUpdate ? 'Update Post' : 'Add Post'}</button>
                     </div>
                 </div>
             </form>
