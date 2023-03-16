@@ -17,10 +17,14 @@ export default function Post() {
     const handleChange = (e) => {
         if (e.target.name === 'title') {
             setformData({ ...formData, [e.target.name]: e.target.value, });
-            dispatch(updatePost({ ...formData, [e.target.name]: e.target.value, }));
+            if (isUpdate) {
+                dispatch(updatePost({ ...formData, [e.target.name]: e.target.value, }));
+            }
         } else {
             setformData({ ...formData, isActive: e.target.checked });
-            dispatch(updatePost({ ...formData, isActive: e.target.checked }));
+            if (isUpdate) {
+                dispatch(updatePost({ ...formData, isActive: e.target.checked }));
+            }
         }
     }
 
